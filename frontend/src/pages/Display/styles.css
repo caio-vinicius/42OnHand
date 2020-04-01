@@ -3,18 +3,27 @@
 }
 
 .display header {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
     align-items: center;
-    justify-content: space-around;
-}
-
-.display header h1 {
-    font-size: 24px;
-    line-height: 34px;
+    justify-content: center;
+    text-align: center;
 }
 
 .display header img {
-    width: 128px;
+    width: 60%;
+}
+
+.display header p {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.display main h1 {
+    font-size: 24px;
+    line-height: 34px;
+    margin-bottom: 18px;
 }
 
 .display main ul {

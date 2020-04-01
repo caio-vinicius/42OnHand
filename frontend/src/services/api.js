@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const api = axios.create({
     baseURL: "https://api.intra.42.fr",
-    headers: { "Authorization": " Bearer 65a09aa41c50ab663631cddcdea17cbcd0350087e7ffc5b1080f79115d64d4c1"}
+    headers: { "Authorization": " Bearer 148a64aed0bbcba2382cae58923fb7fd15b79798e20e2a604eaa7fc47b2cb2c2"}
 })
 
 export default api;
