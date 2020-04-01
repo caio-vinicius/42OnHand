@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { FiArrowRight } from 'react-icons/fi'
+import { FiArrowRight, FiX } from 'react-icons/fi'
 import { Waypoint } from 'react-waypoint'
+import Modal from 'react-modal'
 
 import api from '../../services/api'
 
@@ -13,6 +14,8 @@ function Display() {
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
     const [total, setTotal] = useState(0);
+
+    const [modalIsOpen,setIsOpen] = useState(false);
 
     async function getAmount() {
         await api.get(`/v2/campus?page[size]=100`)
@@ -63,12 +66,25 @@ function Display() {
                             <p>{item.language.name}</p>
                             <strong>Registry</strong>
                             <p>{item.users_count}</p>
-                            <button type="button">
+                            <button onClick={() => {
+                                setIsOpen(true)
+                            }} type="button">
                                 <FiArrowRight size={20} color="#000000" />
                             </button>
                         </li>
                     ))}
                 </ul>
+                <Modal
+                    isOpen={modalIsOpen}
+                    onRequestClose="false"
+                    contentLabel="Example Modal"
+                >
+                    <button onClick={() => {
+                        setIsOpen(false)
+                    }} type="button">
+                        <FiX size={20} color="#000000" />
+                    </button>
+                </Modal>
                 <Waypoint
                     onEnter={loadData}
                 />
